@@ -11,10 +11,6 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-pool.getConnection((err) =>
-  console.log(err ? `连接数据库失败` : "连接数据库成功")
-);
-
 // 使用 Promise 包装连接池，支持异步操作
 const promisePool = pool.promise();
 module.exports = promisePool;
