@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Example</title>
+    <!-- 引入 Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- 登录按钮 -->
+    <button id="loginButton">登录</button>
+    <!-- 获取用户信息按钮 -->
+    <button id="getUserInfoButton">获取用户信息</button>
+
+    <script>
+      // 获取登录按钮
+      const loginButton = document.getElementById("loginButton");
+      const getUserInfoButton = document.getElementById("getUserInfoButton");
+      axios.defaults.withCredentials = true;
+
+      // 点击事件
+      loginButton.addEventListener("click", async () => {
+        // 使用 Axios 发送 POST 请求
+        await axios.post("http://localhost:3000/login", {
+          username: "admin",
+          password: "12345",
+        });
+        document.cookie = "";
+        await axios.post("http://localhost:3000/login", {
+          username: "belong",
+          password: "12345",
+        });
+      });
+
+      // 获取用户信息功能
+      getUserInfoButton.addEventListener("click", () => {
+        axios.get("http://localhost:3000/profile");
+      });
+    </script>
+  </body>
+</html>
