@@ -6,12 +6,25 @@
     <title>Login Example</title>
     <!-- 引入 Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
+    <input class="username-input" type="text" placeholder="请输入用户名" />
+    <input class="password-input" type="password" placeholder="请输入密码" />
+    <button class="login-btn">登陆</button>
+    <button class="user-list-btn">访问用户列表</button>
     <script>
       // 当访问跨域请求时，允许携带凭证（Cookie）
       axios.defaults.withCredentials = true;
-      axios.get("http://127.0.0.1:3000/set-cookie");
+      axios.defaults.baseURL = "http://127.0.0.1:3000";
+
+      $(".login-btn").click(function () {
+        axios.post("/login", { username: $(".username-input").val(), password: $(".password-input").val() });
+      });
+
+      $(".user-list-btn").click(function () {
+        axios.get("/user/list");
+      });
     </script>
   </body>
 </html>
