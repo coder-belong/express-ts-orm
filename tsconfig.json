@@ -1,15 +1,29 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ES2020", // 编译后的代码目标为 ES2020，支持最新的 JS 特性
+    "module": "commonjs", // 使用 CommonJS 模块格式，适用于 Node.js, 浏览器环境则要换成 "ES6"
+    "strict": false, // 禁严格模式
+    "noImplicitAny": true, // 允许隐式的 any 类型
+    "esModuleInterop": true, // 支持 ES6 模块和 CommonJS 模块的互操作性
+    "skipLibCheck": true, // 跳过库文件的类型检查，提升编译速度
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "experimentalDecorators": true, // 启用装饰器
+    "emitDecoratorMetadata": true, // 启用装饰器元数据
     "outDir": "./dist", // 输出目录
-    "rootDir": "./src" // 源代码目录
+    "rootDir": "./", // 源代码目录
+    "baseUrl": "./", // 设置根目录，路径别名的相对路径是相对于此目录的
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ], // 配置路径别名，如果是使用 tsc 编译的，需要额外安装tsconfig-paths 包
+    }
   },
   "include": [
-    "src/**/*"
+    "./**/*.d.ts",
+    "./**/*.ts",
+  ],
+  "exclude": [
+    "node_modules", // 排除 node_modules 目录
+    "dist" // 排除 dist 目录
   ]
 }
