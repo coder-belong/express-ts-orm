@@ -1,0 +1,35 @@
+{
+  // 文件保存自动格式化
+  "editor.formatOnSave": true,
+  // 手动保存文件时删除未引用的包，并且自动整理import顺序
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  // 这样写有可能会被全局默认的配置所覆盖
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 指定文件格式化的默认插件，优先级高于 editor.defaultFormatter
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
