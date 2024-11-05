@@ -1,11 +1,12 @@
-import express from "express";
-import "../config/database"; // 加载代码，确保模型对象被 sequlize 注册
-import UserController from "./controller/userController";
-import authMiddleware from "./middleware/auth";
-import FileController from "./controller/fileController";
 import cors from "cors";
+import express from "express";
 import path from "path";
 import appConfig from "../config/appConfig";
+import "../config/database"; // 加载数据库配置
+import FileController from "./controller/fileController";
+import UserController from "./controller/userController";
+import authMiddleware from "./middleware/auth";
+import "./schedule/task"; // 导入并启动定时任务
 
 const app = express();
 

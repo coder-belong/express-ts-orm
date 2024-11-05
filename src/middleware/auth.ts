@@ -12,7 +12,7 @@ export default async (req: any, res: Response, next: NextFunction): Promise<any>
 
   try {
     const userInfo: any = await verifyToken(token);
-    // 将用户 ID 附加到请求对象，以便其他中间件使用
+    // 将用户 ID 附加到请求头上，以便其他中间件使用
     req.currentUserId = userInfo.userId;
     next(); // 放行给下一个中间件
   } catch (error) {
