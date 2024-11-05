@@ -10,7 +10,7 @@ import "./schedule/task"; // 导入并启动定时任务
 
 const app = express();
 
-// 中间件
+// 全局中间件
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(process.cwd(), "./uploads")));

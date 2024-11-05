@@ -1,5 +1,5 @@
 import { verifyToken } from "@/utils/jwtUtil";
-import type { Response, NextFunction } from "express";
+import type { NextFunction, Response } from "express";
 
 // 中间件：验证 Token
 export default async (req: any, res: Response, next: NextFunction): Promise<any> => {

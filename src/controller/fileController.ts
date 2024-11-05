@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
+import fs from "fs";
 import multer from "multer";
 import path from "path";
-import fs from "fs";
 
 // 确保 uploads 目录存在
 if (!fs.existsSync("uploads")) {

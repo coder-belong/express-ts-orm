@@ -1,8 +1,7 @@
-// src/controllers/userController.ts
-import type { Request, Response } from "express";
 import { UserModel } from "@/model/userModel";
 import { comparePassword, encryptPassword } from "@/utils/cryptoUtil";
 import { generateToken } from "@/utils/jwtUtil";
+import type { Request, Response } from "express";
 
 export default class UserController {
   static getUserList = async (req: any, res: Response): Promise<any> => {
@@ -60,6 +59,7 @@ export default class UserController {
     if (!isSamePwd) {
       return res.json({ code: 0, message: "密码错误！" });
     }
+    // 生成 token
     const token = generateToken(user.id);
     res.json({ code: 1, message: "登录成功", data: { token } });
   };
