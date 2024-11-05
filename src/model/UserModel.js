@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+const sequelize = require("../../config/database");
 
 // 第一个参数是定义模型名称，第二个参数是定义模型属性
 const User = sequelize.define(
