@@ -6,6 +6,7 @@ import "../config/database"; // 加载数据库配置
 import FileController from "./controller/fileController";
 import UserController from "./controller/userController";
 import authMiddleware from "./middleware/auth";
+import upload from "./middleware/uploadFileMiddleware";
 import "./schedule/task"; // 导入并启动定时任务
 
 const app = express();
@@ -26,7 +27,7 @@ app.put("/user/:id", UserController.update);
 app.delete("/user/:id", UserController.destory);
 
 // 文件上传
-app.post("/uploadFile", FileController.uploadFile);
+app.post("/uploadFile", upload.array("files", 10), FileController.uploadFile, FileController.handleUploadFileError);
 
 // 启动服务器
 app.listen(appConfig.port, () => console.log(`Server is running at http://localhost:${appConfig.port}`));
